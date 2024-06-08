@@ -165,25 +165,25 @@ const renderMessage = ({ message = "", color = "green" }) => {
   `;
 
   let timerBar = 100;
-  // const cleartime = setInterval(() => {
-  //   time--;
-  //   document
-  //     .getElementById(idDiv)
-  //     .querySelector(".timer").style.width = `${(timerBar -=
-  //       timerBar / time)}%`;
-  //   if (time <= 0) {
-  //     document.getElementById(idDiv)?.classList.add("out");
-  //     setTimeout(() => {
-  //       document.getElementById(idDiv)?.remove();
-  //       clearInterval(cleartime);
-  //     }, 250);
-  //   }
-  // }, 1000);
+  const cleartime = setInterval(() => {
+    time--;
+    document
+      .getElementById(idDiv)
+      .querySelector(".timer").style.width = `${(timerBar -=
+        timerBar / time)}%`;
+    if (time <= 0) {
+      document.getElementById(idDiv)?.classList.add("out");
+      setTimeout(() => {
+        document.getElementById(idDiv)?.remove();
+        clearInterval(cleartime);
+      }, 250);
+    }
+  }, 1000);
 
   document.addEventListener("click", (e) => {
     const { target } = e;
     if (target.closest(`[data-btn='${idBtn}']`)) {
-      // clearInterval(cleartime);
+      clearInterval(cleartime);
       target.closest(`.${idDiv}`).remove();
     }
   });
