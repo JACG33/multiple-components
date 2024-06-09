@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", e => {
   // Para Tablet/Mobiles
   if (window.innerWidth < 767) {
     let opciones = {
-      rootMargin: "0% 25% 0% 25%",
+      root:document.querySelector("[data-container=sliderimgs]"),
+      rootMargin: "0% 20% 0% 20%",
       threshold: 0.5
     }
 
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", e => {
       }, opciones)
 
     slidesImgs.forEach(slideImg => {
-      observer.observe(ele)
+      observer.observe(slideImg)
     })
   }
 
